@@ -1,0 +1,41 @@
+class book {
+    constructor(name, libraryCategoryBooks, price, Isavailable) {
+        this.name = name;
+        this.libraryCategoryBooks = libraryCategoryBooks;
+        this.price = price;
+        this.Isavailable = Isavailable;
+    }
+
+    displayInfo() {
+        console.log(`Name is ${this.name}, Choose book Category ${this.libraryCategoryBooks}, ${this.price}, ${this.Isavailable}`);
+    }
+
+    ChooseCategory(index) {
+        if (index >= 0 && index < this.libraryCategoryBooks.length) {
+            const selectedCategory = this.libraryCategoryBooks[index];
+            console.log(`Books in category ${selectedCategory}:`);
+            for (const book of selectedCategory) {
+                console.log(book);
+            }
+        } else {
+            console.log("Invalid category index.");
+        }
+    }
+
+    GetBook() {
+        this.Isavailable = false;
+    }
+
+    ReturnBook() {
+        this.Isavailable = true;
+    }
+}
+
+const libraryCategoryBooks = [
+    ["BEST HUMAN ", 'HOW TE'], // History
+    ["Human Extinction", 'WHY YOU SHx SELF N DIE'], // Science
+    [] // Other category
+];
+
+const myBook = new book("Sample Book", libraryCategoryBooks, 10, true);
+myBook.ChooseCategory(0); // Display books in the first category (index 0)
